@@ -1,0 +1,62 @@
+.preisinfo-section {
+  padding: 4rem 1rem;
+  background: #f2f2f2;
+  text-align: center;
+}
+
+.preisinfo-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.preisinfo-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.preisinfo-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.preisinfo-section .button {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.preisinfo-section .button:hover {
+  background-color: #0056b3;
+}
+.preisinfo-section {
+  padding: 4rem 1rem;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.preisinfo-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.preisinfo-section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.preisinfo-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.preisinfo-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}

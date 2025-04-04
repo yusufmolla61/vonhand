@@ -8,3 +8,4 @@ toggleBtn.addEventListener("click", () => {
     ? "Weniger anzeigen"
     : "Weitere Services anzeigen";
 });
+
