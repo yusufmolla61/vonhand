@@ -1,0 +1,228 @@
+.main-services {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .main-services h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .service-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .service-card p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+  .service-icon svg {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  .main-services {
+    padding: 60px 0;
+    background-color: var(--background-color);
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .service-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .service-box {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 30px 20px;
+    max-width: 260px;
+    flex: 1 1 220px;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .service-box i {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  .service-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .service-box p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  
+  .services-highlight {
+    background-color: #f2f9f8;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .services-highlight .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .highlight-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .highlight-box {
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+    flex: 1 1 300px;
+    max-width: 360px;
+    transition: transform 0.3s ease;
+  }
+  
+  .highlight-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .highlight-box i {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  .highlight-box h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .highlight-box p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .highlight-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .highlight-box {
+    background-color: #fff;
+    padding: 2rem;
+    flex: 0 1 calc(33.333% - 2rem);
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .highlight-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  .highlight-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .services-footer {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .btn-secondary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .btn-secondary:hover {
+    background-color: white;
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+  
+  /* Versteckt anfangs den Zusatzbereich */
+.hidden {
+    display: none;
+  }
+
+  /* Anfangszustand */
+  .slide-toggle {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .slide-toggle.active {
+    max-height: 1000px;
+    opacity: 1;
+  }
+  
+  
+  
+  
+  
+  
