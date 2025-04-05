@@ -1,3 +1,6 @@
+/* ========================================
+   Global Styles & Variables
+======================================== */
 :root {
   --primary-color: #FFD700;
   --primary-dark: #e6c200;
@@ -7,14 +10,12 @@
   --background-color: #f7f7f7;
   --font-family: 'Inter', sans-serif;
 
-
-  --font-size-heading: clamp(2.5rem, 5vw, 3.5rem);   /* große Headlines */
-  --font-size-subtext: clamp(1rem, 1.5vw, 1.25rem);  /* Hero-Subtext, Sektionen */
-  --font-size-nav: clamp(1rem, 1.5vw, 1.25rem);       /* Navigation */
-  --font-size-body: 1rem; 
+  --font-size-heading: clamp(2.5rem, 5vw, 3.5rem);
+  --font-size-subtext: clamp(1rem, 1.5vw, 1.25rem);
+  --font-size-nav: clamp(1rem, 1.5vw, 1.25rem);
+  --font-size-body: 1rem;
 }
 
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -26,11 +27,9 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   line-height: 1.6;
+  font-size: var(--font-size-body);
 }
 
-/* ----------------------------------------- */
-/* LAYOUT CONTAINER */
-/* ----------------------------------------- */
 .container {
   width: 100%;
   max-width: 1440px;
@@ -39,19 +38,22 @@ body {
   padding-right: clamp(1rem, 4vw, 3rem);
 }
 
-/* ----------------------------------------- */
-/* NAVIGATION */
-/* ----------------------------------------- */
+/* ========================================
+   Header & Navigation
+======================================== */
 header {
   background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
-  min-height: 70px;
+  padding: 1rem 0;
   flex-wrap: wrap;
 }
 
@@ -60,15 +62,38 @@ header {
   width: auto;
 }
 
+.nav-left,
+.nav-center,
+.nav-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
 .nav-center {
+  justify-content: center;
+}
+
+.nav-right {
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.nav-center ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
 .nav-center li a {
   text-decoration: none;
-  font-weight: bold;
+  font-size: var(--font-size-nav);
+  font-weight: 600;
+  letter-spacing: 0.3px;
   color: var(--text-color);
   transition: color 0.3s ease;
 }
@@ -77,74 +102,23 @@ header {
   color: var(--primary-dark);
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 0;
-  min-height: 70px;
-}
-
-.navbar .nav-left,
-.navbar .nav-center,
-.navbar .nav-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.navbar .nav-left {
-  justify-content: flex-start;
-}
-
-.navbar .nav-center {
-  justify-content: center;
-}
-
-.navbar .nav-right {
-  justify-content: flex-end;
-}
-
-.nav-center ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-center ul li a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-center ul li a:hover {
-  color: var(--primary-color);
-}
-
-
-/* ----------------------------------------- */
-/* BUTTONS */
-/* ----------------------------------------- */
+/* ========================================
+   Buttons
+======================================== */
 .btn {
-  padding: 0.45rem 1rem;
-  font-size: 0.95rem;
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  border-radius: 999px;
   font-weight: bold;
-  border-radius: 4px;
-  border: 2px solid transparent;
+  display: inline-block;
   text-decoration: none;
-  color: white;
   transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .btn-call {
   background-color: var(--primary-dark);
-  border-color: var(--primary-dark);
+  color: white;
 }
 
 .btn-call:hover {
@@ -155,7 +129,7 @@ header {
 
 .btn-whatsapp {
   background-color: var(--whatsapp-dark);
-  border-color: var(--whatsapp-dark);
+  color: white;
 }
 
 .btn-whatsapp:hover {
@@ -164,303 +138,596 @@ header {
   border-color: var(--whatsapp-dark);
 }
 
-/* ----------------------------------------- */
-/* HERO SECTION */
-/* ----------------------------------------- */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ========================================
+   Hero Section (Grundlayout)
+======================================== */
 .hero {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 0;
+  padding: clamp(3rem, 8vw, 6rem) 0;
   background-color: #fff;
   color: var(--text-color);
-}
-
-.hero-left, .hero-right {
-  flex: 1;
-  min-width: 300px;
-  padding: 20px;
-}
-
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
+}
+
+.hero-left,
+.hero-right {
+  flex: 1 1 300px;
+  padding: 20px;
 }
 
 .hero-left h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 10px;
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .hero-left p {
-  margin-bottom: 20px;
-}
-
-.btn-group {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* ----------------------------------------- */
-/* SERVICES SECTION */
-/* ----------------------------------------- */
-.services {
-  background-color: var(--background-color);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.services h2 {
-  color: var(--primary-dark);
-  margin-bottom: 30px;
-}
-
-.services-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.service-item {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  width: 220px;
-  transition: transform 0.3s ease;
-}
-
-.service-item:hover {
-  transform: translateY(-5px);
-}
-
-.service-item h3 {
-  color: var(--primary-dark);
-  margin-bottom: 10px;
-}
-
-/* ----------------------------------------- */
-/* BOOKING SECTION */
-/* ----------------------------------------- */
-.booking {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.booking h2 {
-  color: var(--primary-dark);
-  margin-bottom: 20px;
-}
-
-#bookingForm {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* ----------------------------------------- */
-/* CONTACT & FOOTER */
-/* ----------------------------------------- */
-.contact {
-  padding: 60px 20px;
-  text-align: center;
-  background-color: var(--background-color);
-}
-
-.contact h2 {
-  color: var(--primary-dark);
-  margin-bottom: 20px;
-}
-
-footer {
-  background-color: #eee;
-  padding: 20px;
-  text-align: center;
-  font-size: 0.9em;
+  font-size: var(--font-size-subtext);
   color: #555;
+  margin-bottom: 2rem;
 }
 
-/* ----------------------------------------- */
-/* RESPONSIVE */
-/* ----------------------------------------- */
+/* ========================================
+   Responsive: Navigation & Hero
+======================================== */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .nav-center {
-    flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nav-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .nav-center,
+  .nav-right {
+    display: none;
   }
 
   .nav-buttons {
     flex-direction: column;
-    align-items: center;
+    gap: 0.75rem;
     width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+  }
+
+  .nav-buttons .btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    text-align: center;
   }
 
   .btn {
     width: 100%;
-    text-align: center;
-  }
-
-  .btn-group {
-    flex-direction: column;
   }
 
   .hero {
     flex-direction: column;
-    text-align: center;
   }
 
-  .hero-left, .hero-right {
+  .hero-left,
+  .hero-right {
     padding: 20px 0;
   }
 
-  .services-container {
+  .hero .btn-group {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
+
+.offcanvas {
+  position: fixed;
+  top: 64px; /* exakte Höhe des Headers */
+  left: 0;
+  width: 80%;
+  max-width: 280px;
+  height: calc(100% - 64px); /* nicht über Header gehen */
+  background-color: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  opacity: 0;
+}
+
+.offcanvas a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.offcanvas .btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.offcanvas.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.offcanvas-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+.offcanvas-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1 1 100%;
+    padding: 1rem;
+  }
+
+  .hero-right img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .hero-left h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+}
+
+/* Standard: Button ausblenden */
+.btn-hero-mobile {
+  display: none;
+}
+
+/* Mobile: Button einblenden */
+@media (max-width: 768px) {
+  .btn-hero-mobile {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  .btn-hero-mobile .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/* Standard: Versteckt */
+.btn-hero-mobile {
+  display: none;
+}
+
+/* Mobil: Einblenden und zentrieren */
+@media (max-width: 768px) {
+  .btn-hero-mobile {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  .btn-hero-mobile .btn {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-left h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .btn-hero-mobile {
+    margin: 1.2rem auto;
+    padding: 0 1rem;
+  }
+
+  .hero-right img {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 1rem auto 0 auto;
+  }
+}
+
+.hero-left,
+.hero-right,
+.btn-hero-mobile {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .hero-right img {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto 0 auto;
+  }
+}
+
+
+.nav-phone {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-right: 1rem;
+}
+
+.nav-phone a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.nav-phone a:hover {
+  color: var(--primary-dark);
+}
+
+.offcanvas-phone {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.offcanvas-phone a {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+/* Sichtbarkeit nach Gerät */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .nav-phone a {
+    color: var(--primary-dark);
+  }
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem; /* Abstand zwischen Nummer & Buttons */
+  white-space: nowrap; /* verhindert Zeilenumbruch */
+  flex-wrap: nowrap;
+}
+
+.nav-phone {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-buttons .btn {
+  white-space: nowrap; /* damit Buttons in einer Zeile bleiben */
+  padding: 0.75rem 1.5rem;
+}
+@media (min-width: 769px) {
+  .btn.btn-call,
+  .btn.btn-whatsapp {
+    padding: 0.6rem 1.3rem;
+    font-size: 0.95rem;
+  }
+}
+
+.nav-phone {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin-right: 0.5rem;
+}
+@media (max-width: 768px) {
+  .nav-buttons {
+    display: none !important;
+  }
+}
+.nav-phone {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 769px) {
+  .nav-phone {
+    display: none; /* auf Desktop ausblenden */
+  }
+}
+
+
+/* Nur in mobiler Ansicht anzeigen */
+@media (max-width: 768px) {
+  .mobile-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .mobile-btn-group .btn.small {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+    border-radius: 999px;
+  }
+
+  /* Optional: alten "Jetzt Taxi buchen"-Button ausblenden */
+  .hero .btn-group {
+    display: none;
+  }
+}
+
+/* Buttons im Offcanvas */
+.btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Kontaktblock im Offcanvas */
+.offcanvas-contact {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.offcanvas-contact p {
+  margin: 0.5rem 0;
+}
+
+.offcanvas-contact a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Optional: kleiner Abstand zur oberen Kante */
+.offcanvas {
+  padding-top: 2rem; /* damit nichts überlappt */
+}
+
+header {
+  height: 100px; /* oder wie hoch deine Navbar ist */
+}
+
+.offcanvas {
+  top: 100px; /* gleiche Höhe wie header */
+}
+
+.offcanvas-contact {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.offcanvas-contact p {
+  margin: 0.3rem 0;
+}
+
+.offcanvas-contact a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.offcanvas-address {
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Standard: nur Desktop-Buttons sichtbar */
+.hero-buttons-mobile {
+  display: none;
+}
+
+/* Mobil: nur Mobile-Buttons sichtbar */
+@media (max-width: 768px) {
+  .hero-buttons-desktop {
+    display: none;
+  }
+  .hero-buttons-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-buttons-mobile .btn {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+
+/* Buttons standardmäßig ausblenden (mobile) */
+.hero-buttons-mobile {
+  display: none;
+}
+
+/* Sichtbarkeit nur für mobile Geräte */
+@media (max-width: 768px) {
+  .hero-buttons-desktop {
+    display: none !important;
+  }
+
+  .hero-buttons-mobile {
+    display: flex !important;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-buttons-mobile .btn {
+    flex: 1 1 45%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 0 1.5rem 0; /* oben, unten etwas kompakter */
+  }
+
+  .hero-left h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-left p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .hero-right img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .ueberuns-section {
+    padding: 2.5rem 0;
+  }
+
+  .ueberuns-text h2 {
+    margin-bottom: 1rem;
+  }
+
+  .ueberuns-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .ueberuns-bild img {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ueberuns-text {
+    text-align: center;
   }
 }
 
 
 
-/* === Navbar-Anpassungen === */
-.navbar {
-  padding: 1.2rem 0;
-}
-
-.nav-center li a {
-  font-size: 1.05rem; /* vorher z.B. 0.95rem */
-}
-
-/* === Hero Section === */
-.hero {
-  padding: 100px 0; /* mehr Raum */
-}
-
-.hero-left h2 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem); /* größer, responsiv */
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.hero-left p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #555;
-}
-
-/* === Buttons (global) === */
-.btn {
-  padding: 0.85rem 2rem;
-  font-size: 1.05rem;
-  border-radius: 999px; /* pill shape */
-  transition: all 0.3s ease;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.btn-call {
-  background-color: var(--primary-dark);
-  color: white;
-  border: 2px solid transparent;
-}
-
-.btn-call:hover {
-  background-color: white;
-  color: var(--primary-dark);
-  border-color: var(--primary-dark);
-}
-
-.btn-whatsapp {
-  background-color: var(--whatsapp-dark);
-  color: white;
-  border: 2px solid transparent;
-}
-
-.btn-whatsapp:hover {
-  background-color: white;
-  color: var(--whatsapp-dark);
-  border-color: var(--whatsapp-dark);
-}
-
-/* Hero Button Gruppe */
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.nav-center li a {
-  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-.nav-center li a {
-  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-  font-weight: 600;
-  letter-spacing: 0.4px;
-}
-
-.nav-center li a {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
 
 
-h1, .hero h2 {
-  font-size: var(--font-size-heading);
+/* ========================================
+   Utilities
+======================================== */
+html {
+  scroll-behavior: smooth;
 }
 
-.hero p {
-  font-size: var(--font-size-subtext);
+section {
+  padding: 4rem 0;
 }
 
-.nav-center li a {
-  font-size: var(--font-size-nav);
-  font-weight: 600;
+.bg-light {
+  background-color: #f9f9f9 !important;
 }
 
-body, p {
-  font-size: var(--font-size-body);
-}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding-left: clamp(1rem, 5vw, 4rem);
-  padding-right: clamp(1rem, 5vw, 4rem);
-}
-.navbar {
-  padding-left: clamp(1rem, 5vw, 4rem);
-  padding-right: clamp(1rem, 5vw, 4rem);
+.bg-white {
+  background-color: #fff !important;
 }
