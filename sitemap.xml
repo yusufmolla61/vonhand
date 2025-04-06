@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.baytaxi.de/</loc>
+    <lastmod>2023-08-21</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.baytaxi.de/#about</loc>
+    <lastmod>2023-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.baytaxi.de/#services</loc>
+    <lastmod>2023-08-21</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.baytaxi.de/#cta</loc>
+    <lastmod>2023-08-21</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- weitere URLs hier eintragen, z.B. /impressum.html -->
+</urlset>

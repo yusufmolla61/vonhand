@@ -9,3 +9,17 @@ hintergrund farbe abwäselnt
 
 1. leverkursen hintergrund auf der seite,
 4. darkmode welches automatisch dem systemeistellungen passt oder manuel
+  {{/*  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  /  */}}
+
+
+
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./services.css" />
+  <link rel="stylesheet" href="./ueberuns.css" />
+  <link rel="stylesheet" href="./cta.css" />
+  <link rel="stylesheet" href="./testimonial.css" />
+  <link rel="stylesheet" href="./footer.css" />
+  <link rel="stylesheet" href="./preisrechner.css" />
