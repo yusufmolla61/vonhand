@@ -1,18 +1,25 @@
-const toggleBtn = document.getElementById("toggleServices");
-const additional = document.getElementById("additional-services");
+document.getElementById("toggleServices")?.addEventListener("click", function () {
+  const desktopSection = document.getElementById("additional-services");
+  const mobileSection = document.getElementById("mobileAdditional");
 
-toggleBtn.addEventListener("click", () => {
-  additional.classList.toggle("active");
+  // Umschalten beider Bereiche
+  const isActive = desktopSection?.classList.contains("active") || mobileSection?.classList.contains("active");
 
-  toggleBtn.textContent = additional.classList.contains("active")
-    ? "Weniger anzeigen"
-    : "Weitere Services anzeigen";
+  // Beide schließen oder öffnen
+  [desktopSection, mobileSection].forEach(section => {
+    if (section) section.classList.toggle("active");
+  });
+
+  // Button-Text je nach aktuellem Zustand
+  this.innerText = isActive
+    ? "Weitere Services anzeigen"
+    : "Weniger Services anzeigen";
 });
 
 
+
+const sliderTrack = document.querySelector('.testimonial-slider-track');
 const testimonials = document.querySelectorAll('.testimonial');
-const prevBtn = document.querySelector('.testimonial-controls .prev');
-const nextBtn = document.querySelector('.testimonial-controls .next');
 const dotContainer = document.querySelector('.testimonial-dots');
 
 let index = 0;
@@ -20,7 +27,7 @@ let interval;
 let startX = 0;
 let endX = 0;
 
-// Dynamische Dots erzeugen
+// Dots generieren
 testimonials.forEach((_, i) => {
   const dot = document.createElement('span');
   dot.classList.add('dot');
@@ -33,36 +40,34 @@ const dots = document.querySelectorAll('.testimonial-dots .dot');
 
 // Anzeige aktualisieren
 function showTestimonial(i) {
-  testimonials.forEach(t => t.classList.remove('active'));
-  testimonials[i].classList.add('active');
+  index = i;
+  const offset = -i * 100;
+  sliderTrack.style.transform = `translateX(${offset}%)`;
 
-  dots.forEach(d => d.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
   dots[i].classList.add('active');
 }
 
-// Slide-Funktionen
+// Slide vor/zurück
 function nextSlide() {
   index = (index + 1) % testimonials.length;
   showTestimonial(index);
 }
-
 function prevSlide() {
   index = (index - 1 + testimonials.length) % testimonials.length;
   showTestimonial(index);
 }
 
-// Button-Events
-prevBtn.addEventListener('click', () => {
-  prevSlide();
-  resetInterval();
-});
+// Auto-Slide starten
+function startAutoSlide() {
+  interval = setInterval(nextSlide, 5000);
+}
+function resetInterval() {
+  clearInterval(interval);
+  startAutoSlide();
+}
 
-nextBtn.addEventListener('click', () => {
-  nextSlide();
-  resetInterval();
-});
-
-// Dot-Click Events
+// Dots klickbar machen
 dots.forEach(dot => {
   dot.addEventListener('click', () => {
     index = parseInt(dot.dataset.index);
@@ -71,24 +76,13 @@ dots.forEach(dot => {
   });
 });
 
-// Auto-Wechsel
-function startAutoSlide() {
-  interval = setInterval(nextSlide, 5000);
-}
+// Touch für Swipe
+const sliderWrapper = document.querySelector('.testimonial-slider-wrapper');
 
-function resetInterval() {
-  clearInterval(interval);
-  startAutoSlide();
-}
-
-// Touch (Swipe)
-const slider = document.querySelector('.testimonial-slider');
-
-slider.addEventListener('touchstart', e => {
+sliderWrapper.addEventListener('touchstart', e => {
   startX = e.touches[0].clientX;
 });
-
-slider.addEventListener('touchend', e => {
+sliderWrapper.addEventListener('touchend', e => {
   endX = e.changedTouches[0].clientX;
   handleSwipe();
 });
@@ -103,6 +97,13 @@ function handleSwipe() {
   }
 }
 
-// Initialisierung
+window.addEventListener("resize", () => {
+  showTestimonial(index); // neu berechnen
+});
+
+// Initialisieren
 showTestimonial(index);
 startAutoSlide();
+
+
+

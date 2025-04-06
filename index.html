@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bay Taxi - Ihr Taxi Service</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./res/img/taxi-con-48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="./res/img/taxi-con-96.png" />
+  <link rel="stylesheet" href="./fonts.css" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./services.css" />
   <link rel="stylesheet" href="./ueberuns.css" />
@@ -12,7 +14,7 @@
   <link rel="stylesheet" href="./testimonial.css" />
   <link rel="stylesheet" href="./footer.css" />
   <link rel="stylesheet" href="./preisrechner.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./fonts/fontawesome/css/all.min.css" />
 </head>
 <body>
 
@@ -117,10 +119,11 @@
           <p>Wir sind ein lokales Taxiunternehmen aus Leverkusen – bodenständig, zuverlässig und mit langjähriger Erfahrung unterwegs. Unser Team besteht aus echten Alltagshelden: Familienväter, junge Fahrer und alte Hasen – alle mit dem gleichen Ziel: <strong>dich sicher und pünktlich ans Ziel zu bringen</strong>.</p>
           <p>Egal ob kurze Strecke, Flughafentransfer oder regelmäßige Fahrten – bei <strong>Bay Taxi</strong> bist du mehr als nur eine Nummer. Wir setzen auf persönlichen Service, faire Preise und ehrliche Kommunikation.</p>
           <p><strong>Bay Taxi – dein Fahrtpartner in und um Leverkusen.</strong></p>
-          <div class="btn-group">
-            <a href="tel:0123456789" class="btn btn-call">Jetzt anrufen</a>
-            <a href="https://wa.me/0123456789" class="btn btn-whatsapp" target="_blank">Über WhatsApp</a>
+          <div class="btn-row">
+            <a href="tel:0123456789" class="btn btn-call small-btn">Jetzt anrufen</a>
+            <a href="https://wa.me/0123456789" class="btn btn-whatsapp small-btn" target="_blank">Über WhatsApp</a>
           </div>
+          
         </div>
         <div class="ueberuns-bild">
           <img src="./res/img/ueberuns.png" alt="Unser Team" />
@@ -129,10 +132,14 @@
     </div>
   </section>
 
+
+
   <section id="services" class="services-highlight bg-white">
     <div class="container">
       <h2 class="section-title">Unsere Hauptservices</h2>
-      <div class="highlight-grid">
+  
+      <!-- Desktop: große Boxen -->
+      <div class="highlight-grid" id="desktopServices">
         <div class="highlight-box"><i class="fas fa-taxi"></i><h3>Taxi-Service</h3><p>Für Einzelpersonen oder Gruppen – flexibel und bequem.</p></div>
         <div class="highlight-box"><i class="fas fa-briefcase"></i><h3>Businessfahrten</h3><p>Pünktlich, diskret und professionell für Geschäftskunden.</p></div>
         <div class="highlight-box"><i class="fas fa-car-side"></i><h3>Chauffeurfahrten</h3><p>Mit persönlichem Fahrer komfortabel ans Ziel.</p></div>
@@ -140,17 +147,45 @@
         <div class="highlight-box"><i class="fas fa-prescription-bottle-medical"></i><h3>Krankenfahrten</h3><p>Fahrten zur Dialyse, zum Arzt oder zur Klinik.</p></div>
         <div class="highlight-box"><i class="fas fa-box"></i><h3>Botenfahrten</h3><p>Schneller Transport von Dokumenten und Waren.</p></div>
       </div>
-      <div id="additional-services" class="highlight-grid slide-toggle">
-        <div class="highlight-box"><i class="fas fa-clipboard-list"></i><h3>Besorgungsfahrten</h3><p>Einkäufe oder Apothekenfahrten ganz bequem erledigen lassen.</p></div>
-        <div class="highlight-box"><i class="fas fa-user-graduate"></i><h3>Schulfahrten</h3><p>Sichere & zuverlässige Fahrten für Schüler.</p></div>
-        <div class="highlight-box"><i class="fas fa-user-md"></i><h3>Arztfahrten</h3><p>Wir bringen Sie stressfrei zu Ihren Arztterminen.</p></div>
-        <div class="highlight-box"><i class="fas fa-globe-europe"></i><h3>Auslandsfahrten</h3><p>Komfortabel auch über die Grenzen hinaus unterwegs.</p></div>
+  
+      <!-- Mobile: kompaktes Layout -->
+      <div class="services-list" id="mobileServices">
+        <div class="service-item"><i class="fas fa-taxi"></i><div class="service-text"><h3>Taxi-Service</h3><p>Flexibel & bequem für alle Wege.</p></div></div>
+        <div class="service-item"><i class="fas fa-briefcase"></i><div class="service-text"><h3>Businessfahrten</h3><p>Diskret & pünktlich für Firmenkunden.</p></div></div>
+        <div class="service-item"><i class="fas fa-car-side"></i><div class="service-text"><h3>Chauffeurfahrten</h3><p>Komfortabel mit persönlichem Fahrer.</p></div></div>
+        <div class="service-item"><i class="fas fa-plane-departure"></i><div class="service-text"><h3>Flughafentransfer</h3><p>Zuverlässig zu allen Flughäfen.</p></div></div>
+        <div class="service-item"><i class="fas fa-prescription-bottle-medical"></i><div class="service-text"><h3>Krankenfahrten</h3><p>Sicher zu Arzt & Klinik.</p></div></div>
+        <div class="service-item"><i class="fas fa-box"></i><div class="service-text"><h3>Botenfahrten</h3><p>Dokumente & Pakete pünktlich geliefert.</p></div></div>
       </div>
+  
+      <!-- Zusätzliche Services -->
+      <div class="highlight-grid slide-toggle" id="additional-services">
+        <div class="highlight-box"><i class="fas fa-clipboard-list"></i><h3>Besorgungsfahrten</h3><p>Einkäufe oder Apothekenfahrten erledigen.</p></div>
+        <div class="highlight-box"><i class="fas fa-user-graduate"></i><h3>Schulfahrten</h3><p>Sichere & zuverlässige Fahrten für Schüler.</p></div>
+        <div class="highlight-box"><i class="fas fa-user-md"></i><h3>Arztfahrten</h3><p>Stressfrei zum Arzttermin.</p></div>
+        <div class="highlight-box"><i class="fas fa-globe-europe"></i><h3>Auslandsfahrten</h3><p>Komfortabel auch über die Grenzen hinaus.</p></div>
+      </div>
+  
+      <!-- Mobile Zusatzservices -->
+      <div class="mobile-additional slide-toggle" id="mobileAdditional">
+        <div class="service-item"><i class="fas fa-clipboard-list"></i><div class="service-text"><h3>Besorgungsfahrten</h3><p>Einkäufe oder Apothekenfahrten erledigen.</p></div></div>
+        <div class="service-item"><i class="fas fa-user-graduate"></i><div class="service-text"><h3>Schulfahrten</h3><p>Sichere & zuverlässige Fahrten für Schüler.</p></div></div>
+        <div class="service-item"><i class="fas fa-user-md"></i><div class="service-text"><h3>Arztfahrten</h3><p>Stressfrei zum Arzttermin.</p></div></div>
+        <div class="service-item"><i class="fas fa-globe-europe"></i><div class="service-text"><h3>Auslandsfahrten</h3><p>Komfortabel auch über Grenzen hinaus.</p></div></div>
+      </div>
+  
       <div class="services-footer">
         <button id="toggleServices" class="btn btn-secondary">Weitere Services anzeigen</button>
       </div>
     </div>
   </section>
+  
+  
+  
+  
+
+
+
 
   <section id="cta" class="cta-section bg-light">
     <div class="container cta-container">
@@ -170,30 +205,31 @@
   </section>
 
   <!-- TESTIMONIALS SLIDER SECTION -->
-<section class="testimonials-section bg-white">
-  <div class="container">
-    <h2 class="section-title">Was unsere Kunden sagen</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial active">
-        <p>„Super pünktlich und freundlich – mein Stamm-Taxi in Leverkusen!“</p>
-        <strong>– Sarah W.</strong>
+  <section class="testimonials-section bg-white">
+    <div class="container">
+      <h2 class="section-title">Was unsere Kunden sagen</h2>
+  
+      <div class="testimonial-slider-wrapper">
+        <div class="testimonial-slider-track">
+          <div class="testimonial">
+            <p>„Super pünktlich und freundlich – mein Stamm-Taxi in Leverkusen!“</p>
+            <strong>– Sarah W.</strong>
+          </div>
+          <div class="testimonial">
+            <p>„Ich buche nur noch bei Bay Taxi. Faire Preise & top Fahrer.“</p>
+            <strong>– Ali K.</strong>
+          </div>
+          <div class="testimonial">
+            <p>„Schnell verfügbar und sehr hilfsbereit. Top Service, danke!“</p>
+            <strong>– Markus L.</strong>
+          </div>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>„Ich buche nur noch bei Bay Taxi. Faire Preise & top Fahrer.“</p>
-        <strong>– Ali K.</strong>
-      </div>
-      <div class="testimonial">
-        <p>„Schnell verfügbar und sehr hilfsbereit. Top Service, danke!“</p>
-        <strong>– Markus L.</strong>
-      </div>
+  
+      <div class="testimonial-dots"></div>
     </div>
-    <div class="testimonial-controls">
-      <button class="prev">‹</button>
-      <button class="next">›</button>
-    </div>
-    <div class="testimonial-dots"></div>
-  </div>
-</section>
+  </section>
+  
 
 
   <section class="preisinfo-section bg-light">
@@ -204,34 +240,51 @@
     </div>
   </section>
 
-
   <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-col">
-        <img src="./res/img/bay-taxi-logo.png" alt="Bay Taxi Logo" class="footer-logo" />
+    <div class="footer-container">
+      
+      <!-- Box 1: Logo -->
+      <div class="footer-box logo-box">
+        <img src="./res/img/bay-taxi-logo.png" alt="Bay Taxi Logo" />
       </div>
-      <div class="footer-col">
+  
+      <!-- Box 2: Bay Taxi Info -->
+      <div class="footer-box info-box">
         <h4>Bay Taxi</h4>
-        <p>Hauptstraße 123<br />51373 Leverkusen</p>
+        <p>Hauptstraße 123<br>51373 Leverkusen</p>
         <p><a href="mailto:info@baytaxi.de">info@baytaxi.de</a></p>
-        <p><a href="https://baytaxi.de">www.baytaxi.de</a></p>
+        <p><a href="https://www.baytaxi.de">www.baytaxi.de</a></p>
       </div>
-      <div class="footer-col">
+  
+      <!-- Box 3: Kontakt -->
+      <div class="footer-box contact-box">
         <h4>Kontakt</h4>
-        <p>Festnetz: <a href="tel:+49214123456">+49 214 123456</a></p>
-        <p>Mobil: <a href="tel:+491741234567">+49 174 1234567</a></p>
+        <p>Festnetz: +49 214 123456</p>
+        <p>Mobil: +49 174 1234567</p>
       </div>
-      <div class="footer-col footer-buttons">
-        <a href="tel:0123456789" class="btn-outline">Jetzt anrufen</a>
-        <a href="https://wa.me/0123456789" class="btn-outline">WhatsApp</a>
+  
+      <!-- Box 4: Buttons -->
+      <div class="footer-box buttons-box">
+        <a href="tel:+49214123456" class="btn-outline">Jetzt anrufen</a>
+        <a href="https://wa.me/491741234567" class="btn-outline">WhatsApp</a>
       </div>
+  
     </div>
+  
+    <!-- Unterer Bereich (Impressum / Jahr) -->
     <div class="footer-bottom">
-      <a href="./impressum.html">Impressum</a> | 
-      <a href="./impressum.html#datenschutz">Datenschutz</a>
+      <div class="footer-links">
+        <a href="./impressum.html">Impressum</a> |
+        <a href="./impressum.html#datenschutz">Datenschutz</a>
+      </div>
       <p>&copy; 2025 Bay Taxi – Alle Rechte vorbehalten.</p>
     </div>
   </footer>
+  
+  
+  
+  
+  
   <script>
     const hamburger = document.getElementById('hamburger');
     const offcanvas = document.getElementById('offcanvas');

@@ -731,3 +731,20 @@ section {
 .bg-white {
   background-color: #fff !important;
 }
+
+@media (max-width: 768px) {
+  .services-highlight {
+    padding-top: 2rem; /* statt z. B. 80px */
+    padding-bottom: 3rem;
+  }
+
+  .services-highlight .section-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* enger */
+  }
+}
+
+
+body {
+  overflow-x: hidden;
+}

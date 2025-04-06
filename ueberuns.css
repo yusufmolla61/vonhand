@@ -59,3 +59,60 @@
     justify-content: center;
   }
 }
+
+
+/* Standard (Desktop): zwei Buttons nebeneinander bei mobile */
+.btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn-row .btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .btn-row {
+    flex-wrap: nowrap;
+  }
+
+  .btn-row .small-btn {
+    flex: 1 1 48%;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .ueberuns-section {
+    padding-top: 2rem; /* vorher z. B. 4rem oder 80px */
+  }
+}
+
+.ueberuns-section {
+  transition: padding 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .ueberuns-section {
+    padding-bottom: 2rem; /* vorher evtl. 4rem oder 80px */
+  }
+
+  .ueberuns-bild {
+    margin-bottom: 0; /* falls vorhanden, sonst hinzufügen */
+  }
+
+  .ueberuns-bild img {
+    margin-bottom: 0;
+    display: block;
+  }
+}
+
